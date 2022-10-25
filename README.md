@@ -8,12 +8,11 @@ Our application will be an API testing tool that can be run in any browser, allo
 
 ## Repository Branches
 
-- Lab 26 Branch -
-
+- Lab 26 Branch - [GitHub Lab 26 branch](https://github.com/brandenge/resty/tree/lab-26)
 
 ## Deployed links
 
-- Lab 26 Codesandbox -
+- Lab 26 Codesandbox - [Codesandbox Lab 26](https://codesandbox.io/p/github/brandenge/resty/draft/optimistic-sammet?file=%2FREADME.md)
 
 ## UML Diagrams
 
