@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 
 import './app.scss';
 
@@ -7,17 +8,11 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 
-class App extends React.Component {
+function App(props) {
+  const [data, setData] = useState(null);
+  const [requestParams, setRequestParams] = useState({ url: null, method: null });
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      requestParams: {},
-    };
-  }
-
-  callApi = (requestParams) => {
+  const callApi = (requestParams) => {
     const data = {
       count: 2,
       results: [
@@ -25,19 +20,18 @@ class App extends React.Component {
         {name: 'fake thing 2', url: 'http://fakethings.com/2'},
       ],
     };
-    this.setState({data, requestParams});
-  }
+    setData(data);
+    setRequestParams(requestParams);
+  };
 
-  render() {
-    return (
-      <>
-        <Header />
-        <Form handleApiCall={this.callApi} requestParams={this.state.requestParams} />
-        <Results data={this.state.data} />
-        <Footer />
-      </>
-    );
-  }
+  return (
+    <>
+      <Header />
+      <Form handleApiCall={callApi} requestParams={requestParams} />
+      <Results data={data} />
+      <Footer />
+    </>
+  );
 }
 
 export default App;
