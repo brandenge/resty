@@ -8,9 +8,9 @@ import Footer from './components/footer';
 import Form from './components/form';
 import Results from './components/results';
 
-function App(props) {
+function App() {
   const [data, setData] = useState(null);
-  const [requestParams, setRequestParams] = useState({ url: null, method: null });
+  const [requestParams, setRequestParams] = useState({});
 
   const callApi = (requestParams) => {
     const data = {
