@@ -12,7 +12,7 @@ Our application will be an API testing tool that can be run in any browser, allo
 
 ## Deployed links
 
-- Lab 26 Codesandbox - [Codesandbox Lab 26](https://codesandbox.io/p/github/brandenge/resty/draft/optimistic-sammet?file=%2FREADME.md)
+- Lab 26 Codesandbox - [Codesandbox Lab 26](https://codesandbox.io/p/github/brandenge/resty/draft/tender-sound?file=%2FREADME.md)
 
 ## UML Diagrams
 
