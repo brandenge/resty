@@ -26,6 +26,8 @@ export default function Form(props) {
           <span id='delete'>DELETE</span>
         </label>
       </form>
+      <div>Request Method: {props.requestParams.method}</div>
+      <div>URL: {props.requestParams.url}</div>
     </>
   );
 }
