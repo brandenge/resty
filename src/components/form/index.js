@@ -14,7 +14,7 @@ export default function Form(props) {
   }
 
   const methodSelector = (e) => {
-    setMethod(e.target.textContent);
+    setMethod(e.target.id);
     e.target.style.outline = '5px solid #0f1359';
     if (selectedMethod) selectedMethod.style.outline = '';
     setSelectedMethod(e.target);

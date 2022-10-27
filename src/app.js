@@ -1,5 +1,6 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import './app.scss';
 
@@ -12,20 +13,18 @@ function App() {
   const [response, setResponse] = useState({});
   const [requestParams, setRequestParams] = useState({});
 
-  const callApi = (requestParams) => {
-    const data = {
-      headers: {
-        'content-type': 'application/json',
-      },
-      data: {
-        count: 2,
-        results: [
-          {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-          {name: 'fake thing 2', url: 'http://fakethings.com/2'},
-        ],
-      },
+  useEffect(() => {
+
+  });
+
+  const callApi = async (requestParams) => {
+    const config = {
+      method: requestParams.method,
+      url: requestParams.url,
+      data: requestParams.body,
     };
-    setResponse(data);
+    const response = await axios(config);
+    setResponse(response);
     setRequestParams(requestParams);
   };
 
