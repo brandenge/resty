@@ -13,8 +13,8 @@ This application is an API testing tool that can be run in any browser, allowing
 
 ## Deployed links
 
-- Lab 26 Codesandbox - [Codesandbox Lab 26](https://codesandbox.io/p/github/brandenge/resty/draft/tender-sound?file=%2FREADME.md)
-- Lab 26 Codesandbox - [Codesandbox Lab 27]()
+- Lab 26 Codesandbox - [Codesandbox Lab 26](https://codesandbox.io/p/github/brandenge/resty/lab-26?file=%2FREADME.md)
+- Lab 27 Codesandbox - [Codesandbox Lab 27](https://codesandbox.io/p/github/brandenge/resty/lab-27?file=%2FREADME.md)
 
 ## UML Diagrams
 
