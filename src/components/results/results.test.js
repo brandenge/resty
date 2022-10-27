@@ -5,17 +5,26 @@ import Results from './index';
 
 describe('Tests for the Results component', () => {
   it('renders the data prop correctly', () => {
-    const data = {
-      name: 'Bob',
+    const response = {
+      headers: {
+        'content-type': 'application/json',
+      },
+      data: {
+        name: 'Bob',
+      },
     };
-    render(<Results data={data} />);
-    const resultsPre = screen.getByTestId('results-pre');
-    expect(resultsPre).toHaveTextContent('Bob');
+    render(<Results response={response} />);
+    const resultsHeaders = screen.getByTestId('results-headers');
+    const resultsBody = screen.getByTestId('results-body');
+    expect(resultsHeaders).toHaveTextContent('application/json');
+    expect(resultsBody).toHaveTextContent('Bob');
   });
 
   it('renders no data correctly when there is no data', () => {
     render(<Results />);
-    const resultsPre = screen.getByTestId('results-pre');
-    expect(resultsPre).toHaveTextContent('');
+    const resultsHeaders = screen.getByTestId('results-headers');
+    const resultsBody = screen.getByTestId('results-body');
+    expect(resultsHeaders).toHaveTextContent('');
+    expect(resultsBody).toHaveTextContent('');
   });
 });

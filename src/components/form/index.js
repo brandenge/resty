@@ -5,29 +5,42 @@ import './form.scss';
 export default function Form(props) {
   const [url, setUrl] = useState('');
   const [method, setMethod] = useState('');
+  const [body, setBody] = useState('');
+  const [selectedMethod, setSelectedMethod] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.handleApiCall({ url, method });
+    props.handleApiCall({ url, method, body });
+  }
+
+  const methodSelector = (e) => {
+    setMethod(e.target.textContent);
+    e.target.style.outline = '5px solid #0f1359';
+    if (selectedMethod) selectedMethod.style.outline = '';
+    setSelectedMethod(e.target);
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label >
+      <form data-testid='form' onSubmit={handleSubmit}>
+        <label>
           <span>URL: </span>
-          <input name='url' type='text' onChange={(e) => setUrl(e.target.value)}/>
-          <button type='submit'>GO!</button>
+          <input data-testid='url' name='url' type='text' onChange={(e) => setUrl(e.target.value)}/>
+          <button type='submit' onSubmit={(e) => handleSubmit(e)}>GO!</button>
         </label>
         <label className='methods'>
-          <span id='get' onClick={(e) => setMethod('get')}>GET</span>
-          <span id='post' onClick={(e) => setMethod('post')}>POST</span>
-          <span id='put' onClick={(e) => setMethod('put')}>PUT</span>
-          <span id='delete' onClick={(e) => setMethod('delete')}>DELETE</span>
+          <span id='get' onClick={methodSelector}>GET</span>
+          <span id='post' onClick={methodSelector}>POST</span>
+          <span id='put' onClick={methodSelector}>PUT</span>
+          <span id='delete' onClick={methodSelector}>DELETE</span>
+        </label>
+        <label>
+          <span>Request Body: </span>
+          <textarea onChange={(e) => setBody(e.target.value)}></textarea>
         </label>
       </form>
-      <div>Request Method: {props.requestParams.method}</div>
-      <div>URL: {props.requestParams.url}</div>
+      <div>Request Method: {method}</div>
+      <div>URL: {url}</div>
     </>
   );
 }

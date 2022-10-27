@@ -9,27 +9,32 @@ import Form from './components/form';
 import Results from './components/results';
 
 function App() {
-  const [data, setData] = useState(null);
+  const [response, setResponse] = useState({});
   const [requestParams, setRequestParams] = useState({});
 
   const callApi = (requestParams) => {
     const data = {
-      count: 2,
-      results: [
-        {name: 'fake thing 1', url: 'http://fakethings.com/1'},
-        {name: 'fake thing 2', url: 'http://fakethings.com/2'},
-      ],
+      headers: {
+        'content-type': 'application/json',
+      },
+      data: {
+        count: 2,
+        results: [
+          {name: 'fake thing 1', url: 'http://fakethings.com/1'},
+          {name: 'fake thing 2', url: 'http://fakethings.com/2'},
+        ],
+      },
     };
-    setData(data);
+    setResponse(data);
     setRequestParams(requestParams);
   };
 
   return (
     <>
-      <Header />
-      <Form handleApiCall={callApi} requestParams={requestParams} />
-      <Results data={data} />
-      <Footer />
+      <Header data-testid='header' />
+      <Form data-testid='form' handleApiCall={callApi} requestParams={requestParams} />
+      <Results data-testid='results' response={response} />
+      <Footer data-testid='footer' />
     </>
   );
 }
